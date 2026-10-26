@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Adicionar comentário em "{{ post.title }}"</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enviar Comentário</button>
+</form>
+<br>
+<a href="{% url 'post_detail' post.pk %}">Voltar</a>
+{% endblock %}

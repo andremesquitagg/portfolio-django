@@ -7,4 +7,5 @@ urlpatterns = [
     path('post/novo/', views.PostCreateView.as_view(), name='post_create'),
     path('post/<int:pk>/editar/', views.PostUpdateView.as_view(), name='post_update'),
     path('post/<int:pk>/remover/', views.PostDeleteView.as_view(), name='post_delete'),
-]
+]# ... outras rotas ...
+    path('post/<int:pk>/comentario/', views.add_comment_to_post, name='add_comment_to_post'),

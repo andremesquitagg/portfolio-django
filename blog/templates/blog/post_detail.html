@@ -11,4 +11,22 @@
         <a href="{% url 'post_delete' post.pk %}">Remover</a>
     </div>
 </article>
+
+<hr style="margin: 2rem 0;">
+
+<section>
+    <h3>Comentários</h3>
+    <a href="{% url 'add_comment_to_post' post.pk %}">Adicionar Comentário</a>
+    
+    <div style="margin-top: 1rem;">
+        {% for comment in post.comments.all|dictsortreversed:"post_date" %}
+            <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                <strong>{{ comment.author.username }}</strong> - <em>{{ comment.post_date|date:"d/m/Y H:i" }}</em>
+                <p style="margin-top: 0.5rem;">{{ comment.text }}</p>
+            </div>
+        {% empty %}
+            <p>Não há comentários neste post ainda.</p>
+        {% endfor %}
+    </div>
+</section>
 {% endblock %}
