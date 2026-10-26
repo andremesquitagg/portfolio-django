@@ -2,9 +2,11 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Post, Comment
+
+from .models import Post, Comment, Category
 from .forms import PostForm, CommentForm
 
+# --- VIEWS DE POSTS (PARTE 1) ---
 class PostListView(ListView):
     model = Post
     template_name = 'blog/post_list.html'
@@ -34,7 +36,8 @@ class PostDeleteView(DeleteView):
     template_name = 'blog/post_confirm_delete.html'
     success_url = reverse_lazy('post_list')
 
-    @login_required
+# --- VIEWS DE COMENTÁRIOS (PARTE 2) ---
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
@@ -48,3 +51,14 @@ def add_comment_to_post(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/add_comment_to_post.html', {'form': form, 'post': post})
+
+# --- VIEWS DE CATEGORIAS (PARTE 3) ---
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'blog/category_list.html'
+    context_object_name = 'categories'
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'blog/category_detail.html'
+    context_object_name = 'category'
