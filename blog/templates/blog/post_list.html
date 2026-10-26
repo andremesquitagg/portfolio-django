@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <h2>Lista de Posts</h2>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <article>
+                <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+                <p>{{ post.post_date|date:"d/m/Y H:i" }}</p>
+            </article>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
