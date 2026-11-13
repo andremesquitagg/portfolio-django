@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <h2>Categorias</h2>
+    <ul>
+        {% for category in categories %}
+        <li>
+            <article>
+                <h3><a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a></h3>
+                <p>{{ category.description }}</p>
+            </article>
+        </li>
+        {% empty %}
+            <p>Nenhuma categoria cadastrada ainda.</p>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
