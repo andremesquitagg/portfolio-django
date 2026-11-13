@@ -65,7 +65,7 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$1500000$q2gO5soMfcZnsri7eJEawu$lTaqyylVLYFpYrZ72vqAIevrFKFiokImbdxvSeMfhXw=",
+    "password": "pbkdf2_sha256$1500000$YsracxbIxeGcaxfAuFWvCG$j43IY92pMtvcYcBBzcKDwKwn/1UX0VmeLWSXPPK/KJI=",
     "last_login": "2026-11-09T21:34:58.990Z",
     "is_superuser": true,
     "username": "andre",
