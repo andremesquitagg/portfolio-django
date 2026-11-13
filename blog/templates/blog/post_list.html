@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 <section>
-    <h2>Lista de Posts</h2>
+    {% if category %}
+        <h2>Categoria: {{ category.name }}</h2>
+        <p>{{ category.description }}</p>
+    {% else %}
+        <h2>Lista de Posts</h2>
+    {% endif %}
     <ul>
         {% for post in posts %}
         <li>

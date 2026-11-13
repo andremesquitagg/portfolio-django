@@ -10,6 +10,15 @@
         <a href="{% url 'post_update' post.pk %}">Editar</a> | 
         <a href="{% url 'post_delete' post.pk %}">Remover</a>
     </div>
+
+    <div style="margin-top: 1rem;">
+        <strong>Categorias:</strong>
+        {% for category in post.categories.all %}
+            <a href="{% url 'category_detail' category.pk %}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}
+        {% empty %}
+            <span>Sem categoria</span>
+        {% endfor %}
+    </div>
 </article>
 
 <hr style="margin: 2rem 0;">
