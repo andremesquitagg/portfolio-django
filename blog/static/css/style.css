@@ -64,3 +64,22 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+header img {
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+}
+.inline-form {
+    display: inline;
+    margin: 0;
+}
+.link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+}

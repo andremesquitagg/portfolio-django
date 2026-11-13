@@ -6,10 +6,12 @@
     <div>
         {{ post.content|safe }}
     </div>
+    {% if user.is_authenticated %}
     <div style="margin-top: 20px;">
         <a href="{% url 'post_update' post.pk %}">Editar</a> | 
         <a href="{% url 'post_delete' post.pk %}">Remover</a>
     </div>
+    {% endif %}
 
     <div style="margin-top: 1rem;">
         <strong>Categorias:</strong>
